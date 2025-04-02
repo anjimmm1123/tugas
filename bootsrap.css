@@ -1,0 +1,454 @@
+/* Custom styles to supplement Bootstrap - Pixel Galaxy Theme */
+
+/* Import pixel-style font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Stars background animation */
+@keyframes animateStars {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 15px #7e00ff, 0 0 20px #7e00ff, 0 0 25px #7e00ff; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6; }
+}
+
+/* General tweaks */
+body {
+    padding-top: 0;
+    position: relative;
+    min-height: 100vh;
+    background-color: #0a0a2a;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    animation: animateStars 300s linear infinite;
+    color: #fff;
+}
+
+/* Pixel style heading fonts */
+h1, h2, h3, .navbar-brand, .display-4 {
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h1, .display-4 {
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* Code blocks styling - Retro terminal style */
+code {
+    background-color: rgba(0, 255, 0, 0.1);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: #00ff00;
+    font-family: monospace;
+    border: 1px solid #00ff00;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add some padding to sections to account for fixed navbar */
+section {
+    padding-top: 30px;
+    margin-top: -30px;
+    border-top: 4px solid rgba(64, 224, 208, 0.3);
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+    margin-bottom: 20px;
+}
+
+/* Make code blocks more readable - Terminal style */
+.bg-light code {
+    display: block;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    line-height: 1.5;
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    padding: 15px;
+}
+
+/* Create a subtle border for screenshot placeholders */
+.bg-secondary {
+    border-radius: 5px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+/* Improve spacing in alert lists */
+.alert ul, .alert ol {
+    margin-bottom: 0;
+}
+
+/* Add hover effect to cards - Pixel arcade style */
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #191970;
+    border: 4px solid #4d4dff;
+    box-shadow: 0 0 15px rgba(77, 77, 255, 0.5);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(77, 77, 255, 0.8);
+    animation: pulse 1.5s infinite;
+}
+
+/* Custom styling for section headings */
+section h2 {
+    position: relative;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 0 #4d4dff;
+    padding-bottom: 10px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #7e00ff, transparent);
+}
+
+/* Adjust navbar behavior on small screens */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 15px 0;
+    }
+}
+
+/* Ensure all alerts have appropriate padding */
+.alert {
+    padding: 15px 20px;
+    border: 2px solid currentColor;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Make the header a bit more attractive */
+header {
+    background: linear-gradient(135deg, #191970 0%, #000080 100%);
+    box-shadow: 0 0 20px rgba(64, 224, 208, 0.7);
+    border-bottom: 4px solid #40e0d0;
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    background-repeat: repeat;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+header .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure card-title has sufficient margin */
+.card-title {
+    margin-bottom: 15px;
+    color: #40e0d0;
+    border-bottom: 2px dotted #40e0d0;
+    padding-bottom: 8px;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #000080 !important;
+    border-bottom: 4px solid #40e0d0;
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.7);
+}
+
+.navbar-brand {
+    animation: glow 3s ease-in-out infinite;
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+    margin: 0 5px;
+    padding: 8px 15px !important;
+    color: #fff !important;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #40e0d0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before {
+    transform: translateX(0);
+}
+
+/* Footer styling */
+footer {
+    border-top: 4px solid #40e0d0;
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.7);
+    background: linear-gradient(135deg, #000080 0%, #191970 100%) !important;
+}
+
+/* Custom button styling */
+.btn-primary {
+    background-color: #7e00ff;
+    border-color: #9600ff;
+    box-shadow: 0 0 10px rgba(126, 0, 255, 0.5);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #9600ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(150, 0, 255, 0.8);
+}
+
+/* Style the carousel with pixel-art vibe */
+.carousel-item {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 4px solid #40e0d0;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 10%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(64, 224, 208, 0.5);
+    border-radius: 5px;
+    padding: 15px;
+}
+
+/* Badge styling */
+.badge {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    padding: 6px 10px;
+    margin: 3px;
+    border: 2px solid currentColor;
+}
+
+/* Card color adjustments */
+.card-header, .card-footer {
+    background-color: #000080;
+    border-color: #4d4dff;
+}
+
+/* Profile box styling */
+.bg-dark.bg-opacity-25 {
+    background-color: rgba(64, 224, 208, 0.2) !important;
+    border: 2px solid #40e0d0;
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* Custom background colors */
+.bg-light {
+    background-color: #191970 !important;
+    color: #fff !important;
+}
+
+.text-muted {
+    color: #c0c0ff !important;
+}
+
+/* Improve text readability - make all text bright */
+.card p, .card li, .card td, .card th, .card div, .card h5, .card h6,
+.alert p, .alert li, .alert div,
+.bg-light p, .bg-light span, .bg-light div, .bg-light li, .bg-light a:not(.btn),
+section p, section li, section h1, section h2, section h3, section h4, section h5, section h6 {
+    color: #ffffff !important;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Add glowing header text */
+h1, h2, h3 {
+    text-shadow: 0 0 5px #40e0d0, 0 0 10px rgba(126, 0, 255, 0.5) !important;
+}
+
+/* Make card headers pop with contrast */
+.card-header {
+    background-color: #7e00ff !important;
+    color: white !important;
+    border-bottom: 2px solid #40e0d0 !important;
+}
+
+/* Special treatment for alerts to ensure they're readable */
+.alert-info, .alert-success, .alert-warning, .alert-danger {
+    background-color: rgba(10, 10, 74, 0.8) !important;
+    border: 2px solid currentColor !important;
+}
+
+.alert-info {
+    color: #40e0d0 !important;
+}
+
+.alert-success {
+    color: #00ff7f !important;
+}
+
+.alert-warning {
+    color: #ffcc00 !important;
+}
+
+.alert-danger {
+    color: #ff6b6b !important;
+}
+
+code {
+    color: #ffff00 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5) !important;
+}
+
+.bg-light code {
+    color: #ffff00 !important;
+}
+
+/* Make code block background dark for better contrast */
+.bg-light {
+    background-color: #0a0a4a !important;
+    border: 1px solid #7e00ff !important;
+}
+
+/* Animation for links */
+a:not(.btn):not(.nav-link) {
+    color: #40e0d0 !important;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+a:not(.btn):not(.nav-link):hover {
+    color: #7fffff !important;
+    text-shadow: 0 0 5px #40e0d0;
+}
+
+/* Stars animation */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+/* Special pixel card styling */
+.pixel-card {
+    image-rendering: pixelated;
+    box-shadow: 0 0 20px rgba(126, 0, 255, 0.7) !important;
+    border: 4px solid #7e00ff !important;
+}
+
+.galaxy-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.galaxy-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 0, 255, 0.1) 0%,
+        rgba(255, 0, 255, 0) 50%,
+        rgba(0, 255, 255, 0.1) 100%
+    );
+    transform: rotate(45deg);
+    animation: galaxy-shine 5s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes galaxy-shine {
+    0% { transform: translateX(-100%) rotate(25deg); }
+    100% { transform: translateX(100%) rotate(25deg); }
+}
+
+/* Space particles overlay for additional depth */
+.space-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 0, 255, 0.2) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 100px 100px;
+    pointer-events: none;
+    z-index: -1;
+    animation: space-drift 180s linear infinite;
+}
+
+@keyframes space-drift {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
