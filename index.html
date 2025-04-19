@@ -3,386 +3,1047 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eksplorasi Bootstrap - Pixel Galaxy</title>
-    <!-- Bootstrap CSS via CDN -->
+    <title>Portfolio & Eksplorasi Bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- AOS (Animate On Scroll) library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="bootsrap.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@keyframes animateStars {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 15px #7e00ff, 0 0 20px #7e00ff, 0 0 25px #7e00ff; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6; }
+}
+
+body {
+    padding-top: 0;
+    position: relative;
+    min-height: 100vh;
+    background-color: #0a0a2a;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    animation: animateStars 300s linear infinite;
+    color: #fff;
+}
+
+h1, h2, h3, .navbar-brand, .display-4 {
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h1, .display-4 {
+    animation: glow 3s ease-in-out infinite;
+}
+
+code {
+    background-color: rgba(0, 255, 0, 0.1);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: #00ff00;
+    font-family: monospace;
+    border: 1px solid #00ff00;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    padding-top: 30px;
+    margin-top: -30px;
+    border-top: 4px solid rgba(64, 224, 208, 0.3);
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+    margin-bottom: 20px;
+}
+
+.bg-light code {
+    display: block;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    line-height: 1.5;
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    padding: 15px;
+}
+
+.bg-secondary {
+    border-radius: 5px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+.alert ul, .alert ol {
+    margin-bottom: 0;
+}
+
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #191970;
+    border: 4px solid #4d4dff;
+    box-shadow: 0 0 15px rgba(77, 77, 255, 0.5);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(77, 77, 255, 0.8);
+    animation: pulse 1.5s infinite;
+}
+
+section h2 {
+    position: relative;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 0 #4d4dff;
+    padding-bottom: 10px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #7e00ff, transparent);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 15px 0;
+    }
+}
+
+.alert {
+    padding: 15px 20px;
+    border: 2px solid currentColor;
+    animation: float 3s ease-in-out infinite;
+}
+
+header {
+    background: linear-gradient(135deg, #191970 0%, #000080 100%);
+    box-shadow: 0 0 20px rgba(64, 224, 208, 0.7);
+    border-bottom: 4px solid #40e0d0;
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    background-repeat: repeat;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    color: #40e0d0;
+    border-bottom: 2px dotted #40e0d0;
+    padding-bottom: 8px;
+}
+
+.navbar {
+    background-color: #000080 !important;
+    border-bottom: 4px solid #40e0d0;
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.7);
+}
+
+.navbar-brand {
+    animation: glow 3s ease-in-out infinite;
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+    margin: 0 5px;
+    padding: 8px 15px !important;
+    color: #fff !important;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #40e0d0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before {
+    transform: translateX(0);
+}
+
+footer {
+    border-top: 4px solid #40e0d0;
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.7);
+    background: linear-gradient(135deg, #000080 0%, #191970 100%) !important;
+}
+
+.btn-primary {
+    background-color: #7e00ff;
+    border-color: #9600ff;
+    box-shadow: 0 0 10px rgba(126, 0, 255, 0.5);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #9600ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(150, 0, 255, 0.8);
+}
+
+.carousel-item {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 4px solid #40e0d0;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 10%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(64, 224, 208, 0.5);
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.badge {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    padding: 6px 10px;
+    margin: 3px;
+    border: 2px solid currentColor;
+}
+
+.card-header, .card-footer {
+    background-color: #000080;
+    border-color: #4d4dff;
+}
+
+.bg-dark.bg-opacity-25 {
+    background-color: rgba(64, 224, 208, 0.2) !important;
+    border: 2px solid #40e0d0;
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.bg-light {
+    background-color: #191970 !important;
+    color: #fff !important;
+}
+
+.text-muted {
+    color: #c0c0ff !important;
+}
+
+.card p, .card li, .card td, .card th, .card div, .card h5, .card h6,
+.alert p, .alert li, .alert div,
+.bg-light p, .bg-light span, .bg-light div, .bg-light li, .bg-light a:not(.btn),
+section p, section li, section h1, section h2, section h3, section h4, section h5, section h6 {
+    color: #ffffff !important;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+h1, h2, h3 {
+    text-shadow: 0 0 5px #40e0d0, 0 0 10px rgba(126, 0, 255, 0.5) !important;
+}
+
+.card-header {
+    background-color: #7e00ff !important;
+    color: white !important;
+    border-bottom: 2px solid #40e0d0 !important;
+}
+
+.alert-info, .alert-success, .alert-warning, .alert-danger {
+    background-color: rgba(10, 10, 74, 0.8) !important;
+    border: 2px solid currentColor !important;
+}
+
+.alert-info {
+    color: #40e0d0 !important;
+}
+
+.alert-success {
+    color: #00ff7f !important;
+}
+
+.alert-warning {
+    color: #ffcc00 !important;
+}
+
+.alert-danger {
+    color: #ff6b6b !important;
+}
+
+code {
+    color: #ffff00 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5) !important;
+}
+
+.bg-light code {
+    color: #ffff00 !important;
+}
+
+.bg-light {
+    background-color: #0a0a4a !important;
+    border: 1px solid #7e00ff !important;
+}
+
+a:not(.btn):not(.nav-link) {
+    color: #40e0d0 !important;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+a:not(.btn):not(.nav-link):hover {
+    color: #7fffff !important;
+    text-shadow: 0 0 5px #40e0d0;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.pixel-card {
+    image-rendering: pixelated;
+    box-shadow: 0 0 20px rgba(126, 0, 255, 0.7) !important;
+    border: 4px solid #7e00ff !important;
+}
+
+.galaxy-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.galaxy-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 0, 255, 0.1) 0%,
+        rgba(255, 0, 255, 0) 50%,
+        rgba(0, 255, 255, 0.1) 100%
+    );
+    transform: rotate(45deg);
+    animation: galaxy-shine 5s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes galaxy-shine {
+    0% { transform: translateX(-100%) rotate(25deg); }
+    100% { transform: translateX(100%) rotate(25deg); }
+}
+
+.space-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 0, 255, 0.2) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 100px 100px;
+    pointer-events: none;
+    z-index: -1;
+    animation: space-drift 180s linear infinite;
+}
+
+@keyframes space-drift {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+    </style>
+    <style>
+        .landing-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .landing-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+        }
+        .nav-buttons {
+            margin-top: 2rem;
+        }
+        .nav-button {
+            padding: 1rem 2rem;
+            margin: 1rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .nav-button i {
+            margin-right: 10px;
+        }
+        .main-content {
+            display: none;
+        }
+        .active-section {
+            display: block;
+        }
+        
+        .demo-section {
+            background: #007af3;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .demo-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .code-modal .modal-content {
+            background: #2d2d2d;
+            color: #0080ff;
+        }
+        .code-modal pre {
+            background: #1e1e1e;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 0;
+        }
+        .code-modal code {
+            color: #f8f9fa;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .btn-view-code {
+            background: #2c3e50;
+            color: white;
+            border: none;
+        }
+        .btn-view-code:hover {
+            background: #34495e;
+            color: white;
+        }
+        .toast-container {
+            z-index: 1050;
+        }
+        .offcanvas {
+            background: #f8f9fa;
+        }
+        .nav-tabs .nav-link {
+            color: #2c3e50;
+        }
+        .nav-tabs .nav-link.active {
+            background: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
 </head>
 <body>
-    <!-- Space particles overlay -->
     <div class="space-particles"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fab fa-bootstrap me-2"></i>
-                Eksplorasi Bootstrap
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pengenalan">Pengenalan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#komponen">Komponen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#screenshot">Screenshot</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#kesimpulan">Kesimpulan</a>
-                    </li>
-                </ul>
+    <div class="landing-page">
+        <div class="landing-content" data-aos="zoom-in">
+            <h1 class="display-4 text-light mb-4">Selamat Datang</h1>
+            <p class="lead text-light mb-5">Pilih menu yang ingin Anda lihat</p>
+            <div class="nav-buttons">
+                <button class="btn btn-primary nav-button" onclick="showSection('portfolio')">
+                    <i class="fas fa-user-astronaut"></i> Portfolio
+                </button>
+                <button class="btn btn-success nav-button" onclick="showSection('bootstrap')">
+                    <i class="fab fa-bootstrap"></i> Eksplorasi Bootstrap
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Header -->
-    <header class="py-5 text-center">
-        <div class="container" data-aos="zoom-in" data-aos-duration="1000">
-            <h1 class="display-4">Eksplorasi Framework Bootstrap</h1>
-            <p class="lead">Laporan singkat tentang Bootstrap dan implementasi komponennya</p>
-            <div class="d-flex justify-content-center mb-3">
-                <span class="badge bg-light text-dark me-2">HTML5</span>
-                <span class="badge bg-light text-dark me-2">CSS3</span>
-                <span class="badge bg-light text-dark">Bootstrap 5</span>
-            </div>
-            <div class="bg-dark bg-opacity-25 py-3 px-4 rounded-3 d-inline-block">
-                <h5 class="mb-1">Bima Azmi Khoerullah</h5>
-                <p class="mb-0">NIM: 3224017</p>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Pengenalan Section -->
-        <section id="pengenalan" class="py-5">
+    <div id="portfolio" class="main-content">
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-duration="800">
-                        <h2 class="mb-4 pb-2">Pengenalan Bootstrap</h2>
-                        <p>Bootstrap adalah framework front-end yang paling populer untuk pengembangan website responsif dan mobile-first. Dikembangkan oleh tim di Twitter, Bootstrap menyediakan komponen-komponen antarmuka pengguna yang telah dirancang dan siap pakai seperti tombol, formulir, navigasi, kartu, modal, dan banyak lagi.</p>
-                        
-                        <h4 class="mt-4">Cara Penggunaan Bootstrap</h4>
-                        <p>Ada beberapa cara untuk menggunakan Bootstrap dalam proyek web Anda:</p>
-                        
-                        <div class="card mb-4" data-aos="flip-up" data-aos-delay="100">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">1. Melalui CDN (Content Delivery Network)</h5>
-                            </div>
-                            <div class="card-body">
-                                <p>Cara termudah untuk menggunakan Bootstrap adalah dengan menyertakan tautan CDN di dalam file HTML Anda:</p>
-                                <div class="bg-light p-3 rounded mb-3">
-                                    <code>
-&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
-                                    </code>
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-user-astronaut me-2"></i>
+                    Sistem Informasi
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">Tentang Saya</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Keahlian</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Proyek</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Kontak</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="returnToMainMenu()">
+                                <i class="fas fa-home me-1"></i>Menu Utama
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="py-5 text-center">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/473437610_1624009041824370_4983352322339075720_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=_RK6dW1QItcQ7kNvwE7e58r&_nc_oc=Adkxy-fFiRrJNF9vOSVn9zY5yln6wMGDvYQ4M9SKazUdxUmsgEQxlB6wUJVg0kOrL04&_nc_zt=23&_nc_ht=scontent-sin6-2.xx&_nc_gid=ZSjMu5iNT8uSfOayQX_Ulg&oh=00_AfGLf47YREbRmDZoqLerlylcQg9i2LhnubExANwMJl3SVg&oe=680975C8" alt="Profile Photo" class="rounded-circle mb-4" style="width: 150px; height: 150px; object-fit: cover;">
+                <h1 class="display-4">Bima Azmi Khoerullah</h1>
+                <p class="lead">Mahasiswa Sistem Informasi | Pengembang Web | Analis Sistem</p>
+                <div class="d-flex justify-content-center mb-3">
+                    <span class="badge bg-light text-dark me-2">HTML5</span>
+                    <span class="badge bg-light text-dark me-2">CSS3</span>
+                    <span class="badge bg-light text-dark me-2">JavaScript</span>
+                    <span class="badge bg-light text-dark">Bootstrap 5</span>
+                </div>
+                <div class="bg-dark bg-opacity-25 py-3 px-4 rounded-3 d-inline-block">
+                    <h5 class="mb-1">NIM: 3224017</h5>
+                    <p class="mb-0">STMIK Bandung</p>
+                </div>
+                <div class="social-links mt-3">
+                    <a href="#" class="text-light me-3"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="about" class="py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                            <h2 class="mb-4">Tentang Saya</h2>
+                            <p class="lead">Saya adalah mahasiswa Sistem Informasi yang bersemangat dalam pengembangan web dan analisis sistem.</p>
+                            <p>Saya memiliki minat yang kuat dalam menciptakan solusi teknologi yang inovatif dan efisien. Dengan latar belakang pendidikan di bidang Sistem Informasi, saya telah mengembangkan keterampilan dalam pengembangan web, analisis sistem, dan manajemen basis data.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card pixel-card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="fas fa-graduation-cap me-2"></i>Pendidikan</h5>
+                                            <p class="card-text">STMIK BANDUNG - Sistem Informasi</p>
+                                            <p class="card-text">IPK: 3.75</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card mb-4" data-aos="flip-up" data-aos-delay="200">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">2. Mengunduh File Bootstrap</h5>
-                            </div>
-                            <div class="card-body">
-                                <p>Anda dapat mengunduh file CSS dan JavaScript Bootstrap dari situs resminya dan menyertakannya dalam proyek Anda:</p>
-                                <a href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank" class="btn btn-primary">
-                                    <i class="fas fa-download me-2"></i>Download Bootstrap
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="card mb-4" data-aos="flip-up" data-aos-delay="300">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">3. Menggunakan Package Manager</h5>
-                            </div>
-                            <div class="card-body">
-                                <p>Jika Anda menggunakan npm atau yarn, Anda dapat menginstal Bootstrap:</p>
-                                <div class="bg-light p-3 rounded mb-3">
-                                    <code>
-npm install bootstrap
-<br>
-# atau
-<br>
-yarn add bootstrap
-                                    </code>
+                                <div class="col-md-6">
+                                    <div class="card pixel-card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="fas fa-briefcase me-2"></i>Pengalaman</h5>
+                                            <p class="card-text">Menganggur </p>
+                                            <p class="card-text">Freelance Web Developer</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <div class="alert alert-info" data-aos="fade-up" data-aos-delay="400">
-                            <h5 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Keuntungan Menggunakan Bootstrap:</h5>
-                            <ul>
-                                <li>Mempercepat proses pengembangan website</li>
-                                <li>Responsif secara default (mobile-first)</li>
-                                <li>Konsistensi desain di seluruh proyek</li>
-                                <li>Kompatibilitas browser yang luas</li>
-                                <li>Komunitas besar dan dokumentasi lengkap</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="card mb-4 mt-5" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Componen dan Fitur Yang di Tambahkan Menggunakan AI REPLIT</h5>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="mb-3">1. CSS (Cascading Style Sheets)</h6>
-                                <p>Dalam pengembangan website ini, CSS digunakan untuk menyempurnakan tampilan Bootstrap dengan efek visual yang menarik. Beberapa implementasi CSS yang saya lakukan antara lain:</p>
-                                <ul>
-                                    <li>Menerapkan tema pixel galaxy dengan warna-warna neon</li>
-                                    <li>Membuat gradien khusus untuk latar belakang dan komponen</li>
-                                    <li>Menyesuaikan bayangan dan kilau untuk kartu dan tombol</li>
-                                    <li>Mengoptimalkan kontras untuk meningkatkan keterbacaan teks</li>
-                                </ul>
-                                
-                                <h6 class="mb-3 mt-4">2. Animasi</h6>
-                                <p>Animasi ditambahkan untuk membuat pengalaman pengguna lebih interaktif dan menarik. Beberapa jenis animasi yang diimplementasikan:</p>
-                                <ul>
-                                    <li>Animasi bintang berkelap-kelip pada latar belakang</li>
-                                    <li>Efek partikel ruang angkasa yang bergerak perlahan</li>
-                                    <li>Animasi kilau pada kartu dengan tema galaksi</li>
-                                    <li>Efek scroll (AOS - Animate On Scroll) pada komponen untuk tampilan yang dinamis</li>
-                                </ul>
-                                
-                                <h6 class="mb-3 mt-4">3. Merapikan Kode</h6>
-                                <p>Proses merapikan kode dilakukan untuk memastikan struktur HTML yang baik dan mudah dibaca:</p>
-                                <ul>
-                                    <li>Mengorganisir struktur dengan indentasi yang konsisten</li>
-                                    <li>Memisahkan bagian-bagian utama dengan komentar yang jelas</li>
-                                    <li>Mengelompokkan fungsi JavaScript terkait agar mudah dikelola</li>
-                                    <li>Memastikan nama kelas CSS yang deskriptif dan konsisten</li>
-                                </ul>
-                                
-                                <h6 class="mb-3 mt-4">4. Menyempurnakan Kode</h6>
-                                <p>Penyempurnaan kode dilakukan untuk mengoptimalkan kinerja dan pengalaman pengguna:</p>
-                                <ul>
-                                    <li>Mengoptimalkan loading resources dengan menggunakan CDN</li>
-                                    <li>Mengimplementasikan lazy-loading untuk konten bertahap</li>
-                                    <li>Memastikan responsivitas pada berbagai ukuran layar</li>
-                                    <li>Menambahkan atribut ARIA untuk aksesibilitas yang lebih baik</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Komponen Section -->
-        <section id="komponen" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5 pb-2" data-aos="fade-down">Komponen-Komponen Bootstrap</h2>
-                
-                <!-- Komponen 1: Card -->
-                <div class="row mb-5" data-aos="fade-right">
-                    <div class="col-lg-6">
-                        <h3 class="mb-3">1. Card</h3>
-                        <p>Card adalah salah satu komponen paling serbaguna di Bootstrap. Card digunakan untuk menampilkan konten dalam wadah yang fleksibel dan dapat diperluas dengan header, footer, dan berbagai opsi lainnya.</p>
-                        
-                        <h5 class="mt-4">Contoh Penggunaan:</h5>
-                        <div class="bg-light p-3 rounded mb-3">
-                            <code>
-&lt;div class="card"&gt;
-  &lt;div class="card-header"&gt;
-    Card Header
-  &lt;/div&gt;
-  &lt;div class="card-body"&gt;
-    &lt;h5 class="card-title"&gt;Card Title&lt;/h5&gt;
-    &lt;p class="card-text"&gt;Card content here...&lt;/p&gt;
-    &lt;a href="#" class="btn btn-primary"&gt;Button&lt;/a&gt;
-  &lt;/div&gt;
-  &lt;div class="card-footer"&gt;
-    Card Footer
-  &lt;/div&gt;
-&lt;/div&gt;
-                            </code>
+            <section id="skills" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center mb-5">Keahlian</h2>
+                    <div class="row">
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card pixel-card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-code me-2"></i>Pengembangan Web</h5>
+                                    <div class="progress mb-2">
+                                        <div class="progress-bar" role="progressbar" style="width: 90%">90%</div>
+                                    </div>
+                                    <p class="card-text">HTML, CSS, JavaScript, Bootstrap</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h4 class="mb-3">Hasil Implementasi:</h4>
-                        <div class="card pixel-card">
-                            <div class="card-header">
-                                Card Header
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card pixel-card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-database me-2"></i>Basis Data</h5>
+                                    <div class="progress mb-2">
+                                        <div class="progress-bar" role="progressbar" style="width: 85%">85%</div>
+                                    </div>
+                                    <p class="card-text">MySQL, PostgreSQL, MongoDB</p>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card Title</h5>
-                                <p class="card-text">Ini adalah contoh card Bootstrap. Card ini menampilkan konten dengan header, body, dan footer. Card dapat digunakan untuk berbagai tujuan seperti panel, kotak informasi, atau item dalam galeri.</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                Card Footer
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card pixel-card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-mobile-alt me-2"></i>UI/UX Design</h5>
+                                    <div class="progress mb-2">
+                                        <div class="progress-bar" role="progressbar" style="width: 80%">80%</div>
+                                    </div>
+                                    <p class="card-text">Figma, Adobe XD, Responsive Design</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Komponen 2: Alerts -->
-                <div class="row mb-5" data-aos="fade-left">
-                    <div class="col-lg-6">
-                        <h3 class="mb-3">2. Alerts</h3>
-                        <p>Alert digunakan untuk memberikan umpan balik kontekstual kepada pengguna seperti pesan sukses, informasi, peringatan, atau kesalahan. Bootstrap menyediakan beberapa variasi alert dengan warna berbeda sesuai konteks.</p>
-                        
-                        <h5 class="mt-4">Contoh Penggunaan:</h5>
-                        <div class="bg-light p-3 rounded mb-3">
-                            <code>
-&lt;div class="alert alert-success" role="alert"&gt;
-  &lt;h4 class="alert-heading"&gt;Well done!&lt;/h4&gt;
-  &lt;p&gt;This is a success alert with heading.&lt;/p&gt;
-&lt;/div&gt;
+            </section>
 
-&lt;div class="alert alert-danger" role="alert"&gt;
-  This is a danger alert.
-&lt;/div&gt;
-
-&lt;div class="alert alert-warning" role="alert"&gt;
-  This is a warning alert.
-&lt;/div&gt;
-
-&lt;div class="alert alert-info" role="alert"&gt;
-  This is an info alert.
-&lt;/div&gt;
-                            </code>
+            <section id="projects" class="py-5">
+                <div class="container">
+                    <h2 class="text-center mb-5">Proyek Terbaru</h2>
+                    <div class="row">
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card pixel-card mb-4">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Qcm9qZWN0IDE8L3RleHQ+PC9zdmc+" class="card-img-top" alt="Project 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sistem Informasi Akademik</h5>
+                                    <p class="card-text">Sistem informasi akademik berbasis web untuk manajemen data mahasiswa dan nilai.</p>
+                                    <a href="#" class="btn btn-primary">Lihat Proyek</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card pixel-card mb-4">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Qcm9qZWN0IDI8L3RleHQ+PC9zdmc+" class="card-img-top" alt="Project 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">E-Commerce Platform</h5>
+                                    <p class="card-text">Platform e-commerce dengan fitur pembayaran online dan manajemen inventori.</p>
+                                    <a href="#" class="btn btn-primary">Lihat Proyek</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card pixel-card mb-4">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Qcm9qZWN0IDM8L3RleHQ+PC9zdmc+" class="card-img-top" alt="Project 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Aplikasi Mobile</h5>
+                                    <p class="card-text">Aplikasi mobile untuk manajemen tugas dan jadwal kuliah.</p>
+                                    <a href="#" class="btn btn-primary">Lihat Proyek</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <h4 class="mb-3">Hasil Implementasi:</h4>
+                </div>
+            </section>
+
+            <section id="contact" class="py-5">
+                <div class="container">
+                    <h2 class="text-center mb-5">Hubungi Saya</h2>
+                    <div class="row">
+                        <div class="col-lg-6 mx-auto">
+                            <form data-aos="fade-up">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nama">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Pesan"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Kirim Pesan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="bootstrap" class="main-content">
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fab fa-bootstrap me-2"></i>
+                    Eksplorasi Bootstrap
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavBootstrap">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavBootstrap">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pengenalan">Pengenalan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#komponen">Komponen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#demo">Demo Komponen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#kesimpulan">Kesimpulan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="returnToMainMenu()">
+                                <i class="fas fa-home me-1"></i>Menu Utama
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section id="demo" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Demo Komponen Bootstrap</h2>
+                
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">1. Cards</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Card</h5>
+                                <p class="card-text">Card adalah komponen serbaguna yang digunakan untuk menampilkan konten dalam wadah yang fleksibel. Card dapat berisi header, body, dan footer, serta mendukung berbagai jenis konten seperti gambar, teks, dan tombol.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Menampilkan produk dalam e-commerce</li>
+                                    <li>Membuat profil pengguna</li>
+                                    <li>Menampilkan artikel atau berita</li>
+                                    <li>Membuat galeri gambar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5QbGFjZWhvbGRlciBJbWFnZTwvdGV4dD48L3N2Zz4=" class="card-img-top" alt="Card image">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card Title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title.</p>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardCodeModal">Lihat Kode</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">2. Modal</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Modal</h5>
+                                <p class="card-text">Modal adalah dialog box/popup yang muncul di atas halaman utama. Modal digunakan untuk menampilkan konten tambahan atau meminta input dari pengguna tanpa meninggalkan halaman saat ini.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Menampilkan form login/registrasi</li>
+                                    <li>Menampilkan detail produk</li>
+                                    <li>Konfirmasi aksi pengguna</li>
+                                    <li>Menampilkan galeri gambar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Buka Modal
+                        </button>
+                        <button class="btn btn-view-code" data-bs-toggle="modal" data-bs-target="#modalCodeModal">Lihat Kode</button>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">3. Progress Bar</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Progress Bar</h5>
+                                <p class="card-text">Progress Bar adalah komponen yang menampilkan kemajuan suatu proses atau status. Progress Bar dapat digunakan untuk menunjukkan persentase, status loading, atau tahapan suatu proses.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Menampilkan status upload file</li>
+                                    <li>Menunjukkan progress form multi-step</li>
+                                    <li>Menampilkan loading status</li>
+                                    <li>Menunjukkan skill atau kemampuan</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="progress mb-3">
+                            <div class="progress-bar" role="progressbar" style="width: 25%">25%</div>
+                        </div>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%">50%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%">75%</div>
+                        </div>
+                        <button class="btn btn-view-code mt-3" data-bs-toggle="modal" data-bs-target="#progressCodeModal">Lihat Kode</button>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">4. List Group</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian List Group</h5>
+                                <p class="card-text">List Group adalah komponen yang menampilkan serangkaian item dalam bentuk daftar. List Group dapat digunakan untuk menampilkan menu, daftar konten, atau navigasi.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Membuat menu navigasi</li>
+                                    <li>Menampilkan daftar konten</li>
+                                    <li>Membuat sidebar menu</li>
+                                    <li>Menampilkan hasil pencarian</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action active">Item 1</a>
+                            <a href="#" class="list-group-item list-group-item-action">Item 2</a>
+                            <a href="#" class="list-group-item list-group-item-action">Item 3</a>
+                        </div>
+                        <button class="btn btn-view-code mt-3" data-bs-toggle="modal" data-bs-target="#listGroupCodeModal">Lihat Kode</button>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">5. Toast</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Toast</h5>
+                                <p class="card-text">Toast adalah notifikasi ringan yang muncul sementara di layar. Toast biasanya digunakan untuk memberikan umpan balik singkat kepada pengguna tentang suatu aksi.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Memberikan notifikasi sukses/error</li>
+                                    <li>Menampilkan pesan sistem</li>
+                                    <li>Memberikan feedback aksi pengguna</li>
+                                    <li>Menampilkan status real-time</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="showToast()">Tampilkan Toast</button>
+                        <button class="btn btn-view-code" data-bs-toggle="modal" data-bs-target="#toastCodeModal">Lihat Kode</button>
+                        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header">
+                                    <strong class="me-auto">Bootstrap</strong>
+                                    <small>Baru saja</small>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body">
+                                    Ini adalah contoh toast message.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">6. Offcanvas</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Offcanvas</h5>
+                                <p class="card-text">Offcanvas adalah komponen sidebar yang dapat digeser masuk dan keluar dari layar. Offcanvas biasanya digunakan untuk menampilkan menu atau konten tambahan.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Membuat menu mobile</li>
+                                    <li>Menampilkan filter atau pengaturan</li>
+                                    <li>Membuat sidebar yang dapat disembunyikan</li>
+                                    <li>Menampilkan konten tambahan</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                            Buka Offcanvas
+                        </button>
+                        <button class="btn btn-view-code" data-bs-toggle="modal" data-bs-target="#offcanvasCodeModal">Lihat Kode</button>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">7. Tabs & Pills</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Tabs & Pills</h5>
+                                <p class="card-text">Tabs dan Pills adalah komponen navigasi yang memungkinkan pengguna untuk beralih antara konten yang berbeda dalam satu area. Tabs biasanya horizontal, sedangkan Pills dapat horizontal atau vertikal.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Mengorganisir konten yang terkait</li>
+                                    <li>Membuat wizard atau form multi-step</li>
+                                    <li>Menampilkan profil atau pengaturan</li>
+                                    <li>Membuat dashboard dengan multiple view</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab">Tab 1</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab">Tab 2</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel">Konten Tab 1</div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel">Konten Tab 2</div>
+                        </div>
+                        <button class="btn btn-view-code mt-3" data-bs-toggle="modal" data-bs-target="#tabsCodeModal">Lihat Kode</button>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">8. Spinner</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Spinner</h5>
+                                <p class="card-text">Spinner adalah indikator loading yang menunjukkan bahwa suatu proses sedang berjalan. Spinner dapat digunakan untuk memberikan feedback visual kepada pengguna saat menunggu proses selesai.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Menunjukkan loading saat memuat data</li>
+                                    <li>Memberikan feedback saat proses upload</li>
+                                    <li>Menunjukkan status loading halaman</li>
+                                    <li>Memberikan indikasi proses yang sedang berjalan</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="spinner-border text-primary me-3" role="status"></div>
+                        <div class="spinner-border text-success me-3" role="status"></div>
+                        <div class="spinner-border text-danger" role="status"></div>
+                        <button class="btn btn-view-code ms-3" data-bs-toggle="modal" data-bs-target="#spinnerCodeModal">Lihat Kode</button>
+                    </div>
+                </div>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">9. Alert</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Alert</h5>
+                                <p class="card-text">Alert adalah komponen yang digunakan untuk memberikan pesan penting kepada pengguna. Alert dapat digunakan untuk menampilkan pesan sukses, peringatan, error, atau informasi.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Menampilkan pesan sukses/error</li>
+                                    <li>Memberikan peringatan sistem</li>
+                                    <li>Menampilkan informasi penting</li>
+                                    <li>Memberikan feedback aksi pengguna</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Well done!</h4>
                             <p>This is a success alert with heading.</p>
                         </div>
-                        
                         <div class="alert alert-danger" role="alert">
                             This is a danger alert.
                         </div>
-                        
                         <div class="alert alert-warning" role="alert">
                             This is a warning alert.
                         </div>
-                        
                         <div class="alert alert-info" role="alert">
                             This is an info alert.
                         </div>
+                        <button class="btn btn-view-code mt-3" data-bs-toggle="modal" data-bs-target="#alertCodeModal">Lihat Kode</button>
                     </div>
                 </div>
-                
-                <!-- Komponen 3: Navbar -->
-                <div class="row mb-5" data-aos="fade-right">
-                    <div class="col-lg-6">
-                        <h3 class="mb-3">3. Navbar</h3>
-                        <p>Navbar (Navigation Bar) adalah komponen responsif yang berfungsi sebagai header navigasi untuk aplikasi atau situs web Anda. Bootstrap menyediakan beberapa opsi untuk menyesuaikan tampilan dan perilaku navbar.</p>
-                        
-                        <h5 class="mt-4">Contoh Penggunaan:</h5>
-                        <div class="bg-light p-3 rounded mb-3">
-                            <code>
-&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
-  &lt;div class="container"&gt;
-    &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
-    &lt;button class="navbar-toggler" type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav"&gt;
-      &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
-    &lt;/button&gt;
-    &lt;div class="collapse navbar-collapse" id="navbarNav"&gt;
-      &lt;ul class="navbar-nav"&gt;
-        &lt;li class="nav-item"&gt;
-          &lt;a class="nav-link active" href="#"&gt;Home&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="nav-item"&gt;
-          &lt;a class="nav-link" href="#"&gt;Features&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="nav-item"&gt;
-          &lt;a class="nav-link" href="#"&gt;Pricing&lt;/a&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;
-                            </code>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h4 class="mb-3">Hasil Implementasi:</h4>
-                        <div class="border rounded">
-                            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                                <div class="container-fluid">
-                                    <a class="navbar-brand" href="#">Navbar</a>
-                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavExample" aria-controls="navbarNavExample" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div class="collapse navbar-collapse" id="navbarNavExample">
-                                        <ul class="navbar-nav">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Home</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Features</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Pricing</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
-                            <div class="p-3 bg-light">
-                                <p>Navbar ditampilkan di atas dengan warna latar belakang gelap. Pada layar kecil, menu akan berubah menjadi tombol hamburger yang dapat diklik untuk membuka menu.</p>
+
+                <div class="row mb-5 demo-section" data-aos="fade-up">
+                    <div class="col-12">
+                        <h3 class="mb-4">10. Carousel</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengertian Carousel</h5>
+                                <p class="card-text">Carousel adalah komponen slideshow yang memungkinkan pengguna untuk melihat konten secara bergantian. Carousel biasanya digunakan untuk menampilkan gambar, produk, atau konten lainnya dalam bentuk slide.</p>
+                                <h6>Kegunaan:</h6>
+                                <ul>
+                                    <li>Menampilkan galeri gambar</li>
+                                    <li>Memperkenalkan fitur produk</li>
+                                    <li>Menampilkan testimonial</li>
+                                    <li>Membuat banner promosi</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Komponen 4: Carousel -->
-                <div class="row" data-aos="fade-left">
-                    <div class="col-lg-6">
-                        <h3 class="mb-3">4. Carousel</h3>
-                        <p>Carousel adalah komponen slideshow untuk memperlihatkan elemen seperti gambar atau teks secara berurutan. Bootstrap membuat implementasi carousel menjadi sangat mudah.</p>
-                        
-                        <h5 class="mt-4">Contoh Penggunaan:</h5>
-                        <div class="bg-light p-3 rounded mb-3">
-                            <code>
-&lt;div id="carouselExample" class="carousel slide"&gt;
-  &lt;div class="carousel-inner"&gt;
-    &lt;div class="carousel-item active"&gt;
-      &lt;div class="bg-primary text-white text-center p-5"&gt;
-        &lt;h3&gt;Slide 1&lt;/h3&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="carousel-item"&gt;
-      &lt;div class="bg-success text-white text-center p-5"&gt;
-        &lt;h3&gt;Slide 2&lt;/h3&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="carousel-item"&gt;
-      &lt;div class="bg-danger text-white text-center p-5"&gt;
-        &lt;h3&gt;Slide 3&lt;/h3&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;button class="carousel-control-prev" type="button" 
-      data-bs-target="#carouselExample" data-bs-slide="prev"&gt;
-    &lt;span class="carousel-control-prev-icon"&gt;&lt;/span&gt;
-  &lt;/button&gt;
-  &lt;button class="carousel-control-next" type="button" 
-      data-bs-target="#carouselExample" data-bs-slide="next"&gt;
-    &lt;span class="carousel-control-next-icon"&gt;&lt;/span&gt;
-  &lt;/button&gt;
-&lt;/div&gt;
-                            </code>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h4 class="mb-3">Hasil Implementasi:</h4>
                         <div id="carouselExample" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -408,180 +1069,419 @@ yarn add bootstrap
                                 <span class="carousel-control-next-icon"></span>
                             </button>
                         </div>
-                        <div class="mt-3">
-                            <p>Carousel ini menampilkan tiga slide berbeda dengan warna berbeda. Pengguna dapat menggunakan tombol navigasi di sisi kiri dan kanan untuk berpindah antar slide.</p>
-                        </div>
+                        <button class="btn btn-view-code mt-3" data-bs-toggle="modal" data-bs-target="#carouselCodeModal">Lihat Kode</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Screenshot Section -->
-        <section id="screenshot" class="py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto" data-aos="zoom-in">
-                        <h2 class="mb-4 pb-2">Tangkapan Layar (Screenshot)</h2>
-                        <div class="card">
-                            <div class="card-body">
-                                <p>Di bawah ini adalah screenshot yang menunjukkan implementasi komponen Bootstrap pada website eksplorasi ini:</p>
-                                
-                                <div class="row mt-4">
-                                    <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-delay="100">
-                                        <div class="card h-100 galaxy-card">
-                                            <div class="card-header">
-                                                <h5 class="card-title">Navbar dan Header</h5>
-                                            </div>
-                                            <div class="card-body text-center bg-light p-4">
-                                                <img src="https://i.imgur.com/fz1ZZFU.png" class="img-fluid border" alt="Screenshot Navbar dan Header">
-                                            </div>
-                                            <div class="card-footer">
-                                                <p class="text-muted small">Screenshot menunjukkan implementasi Navbar dan Header dengan Bootstrap</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6 mb-4" data-aos="fade-left" data-aos-delay="200">
-                                        <div class="card h-100 galaxy-card">
-                                            <div class="card-header">
-                                                <h5 class="card-title">Card dan Alert</h5>
-                                            </div>
-                                            <div class="card-body text-center bg-light p-4">
-                                                <img src="https://i.imgur.com/JUkZLXQ.png" class="img-fluid border" alt="Screenshot Card dan Alert">
-                                            </div>
-                                            <div class="card-footer">
-                                                <p class="text-muted small">Screenshot menunjukkan implementasi Card dan Alert dengan Bootstrap</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="alert alert-info mt-4" data-aos="fade-up" data-aos-delay="300">
-                                    <h5 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Petunjuk untuk Screenshot:</h5>
-                                    <ul>
-                                        <li class="mb-2">Pastikan screenshot menunjukkan implementasi komponen yang jelas.</li>
-                                        <li class="mb-2">Tambahkan deskripsi singkat yang menjelaskan apa yang ditampilkan dalam screenshot.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+        <div class="modal fade code-modal" id="cardCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Card</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;div class="card"&gt;
+    &lt;img src="image.jpg" class="card-img-top" alt="..."&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Card Title&lt;/h5&gt;
+        &lt;p class="card-text"&gt;Some text&lt;/p&gt;
+        &lt;button class="btn btn-primary"&gt;Button&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Kesimpulan Section -->
-        <section id="kesimpulan" class="py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                        <h2 class="mb-4 pb-2">Kesimpulan</h2>
-                        <div class="card">
-                            <div class="card-body">
-                                <p>Dari eksplorasi terhadap framework Bootstrap, dapat disimpulkan beberapa hal berikut:</p>
-                                
-                                <ol class="mt-4">
-                                    <li class="mb-3" data-aos="fade-right" data-aos-delay="100">
-                                        <strong>Kemudahan Penggunaan:</strong> Bootstrap menawarkan kemudahan dalam pengembangan website responsif dengan menyediakan komponen-komponen yang siap pakai dan dokumentasi yang lengkap.
-                                    </li>
-                                    <li class="mb-3" data-aos="fade-right" data-aos-delay="200">
-                                        <strong>Keberagaman Komponen:</strong> Bootstrap memiliki banyak komponen yang dapat digunakan untuk berbagai kebutuhan interface, seperti Card, Alert, Navbar, dan Carousel yang telah dibahas dalam laporan ini.
-                                    </li>
-                                    <li class="mb-3" data-aos="fade-right" data-aos-delay="300">
-                                        <strong>Responsif dan Konsisten:</strong> Framework ini didesain dengan pendekatan mobile-first, memastikan website tampil baik di berbagai ukuran layar. Selain itu, Bootstrap membantu menjaga konsistensi desain di seluruh proyek.
-                                    </li>
-                                    <li class="mb-3" data-aos="fade-right" data-aos-delay="400">
-                                        <strong>Ekstensibilitas:</strong> Meskipun Bootstrap memiliki banyak fitur bawaan, framework ini juga fleksibel dan dapat diperluas atau disesuaikan sesuai kebutuhan spesifik proyek.
-                                    </li>
-                                </ol>
-                                
-                                <div class="card mb-4 mt-5 galaxy-card" data-aos="fade-up" data-aos-delay="500">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Hasil Eksplorasi dan Pengembangan</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="mb-3">Pengembangan CSS dan Animasi</h6>
-                                        <p>Dalam proses pengembangan website eksplorasi ini, saya telah menerapkan berbagai teknik CSS dan animasi untuk meningkatkan tampilan:</p>
-                                        <ul>
-                                            <li class="mb-2">Meningkatkan tampilan dasar Bootstrap dengan tema Pixel Galaxy yang unik</li>
-                                            <li class="mb-2">Membuat animasi bintang dan ruang angkasa untuk menciptakan kedalaman visual</li>
-                                            <li class="mb-2">Menambahkan efek kilau pada kartu dan komponen untuk meningkatkan interaktivitas</li>
-                                            <li class="mb-2">Menggunakan Animate On Scroll (AOS) untuk membuat transisi elemen yang menarik</li>
-                                        </ul>
-                                        
-                                        <h6 class="mb-3 mt-4">Organisasi dan Kerapihan Kode</h6>
-                                        <p>Selain mengimplementasikan desain yang menarik, fokus juga diberikan pada kualitas kode:</p>
-                                        <ul>
-                                            <li class="mb-2">Menyusun HTML dengan struktur yang jelas dan terorganisir</li>
-                                            <li class="mb-2">Menggunakan komentar untuk membagi bagian-bagian kode secara logis</li>
-                                            <li class="mb-2">Memisahkan CSS ke dalam file terpisah untuk kemudahan pemeliharaan</li>
-                                            <li class="mb-2">Menerapkan praktik terbaik dalam penulisan JavaScript untuk membuat animasi</li>
-                                        </ul>
-                                        
-                                        <h6 class="mb-3 mt-4">Penyempurnaan dan Optimasi</h6>
-                                        <p>Tahap akhir pengembangan melibatkan penyempurnaan dan optimasi untuk kinerja terbaik:</p>
-                                        <ul>
-                                            <li class="mb-2">Mengoptimalkan kode dengan menghilangkan redundansi</li>
-                                            <li class="mb-2">Memastikan responsivitas pada berbagai perangkat dari mobile hingga desktop</li>
-                                            <li class="mb-2">Memperbaiki bug dan masalah tampilan yang ditemukan selama pengujian</li>
-                                            <li class="mb-2">Memaksimalkan kecepatan loading dengan praktik web modern</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="alert alert-success mt-4" data-aos="zoom-in" data-aos-delay="600">
-                                    <h5 class="alert-heading"><i class="fas fa-check-circle me-2"></i>Manfaat Eksplorasi:</h5>
-                                    <p>Dengan melakukan eksplorasi terhadap Bootstrap, kita dapat memahami bagaimana framework ini mempercepat proses pengembangan web, mengurangi kebutuhan akan CSS custom, dan membantu menciptakan tampilan yang profesional dan responsif.</p>
-                                    <p class="mt-2">Selain itu, proses pengembangan lanjutan dengan CSS kustom, animasi, dan teknik pengkodean yang baik juga memberikan wawasan berharga tentang bagaimana meningkatkan kualitas desain web secara keseluruhan.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-4 text-white">
-        <div class="container text-center">
-            <p class="mb-1">Eksplorasi Framework Bootstrap</p>
-            <p class="mb-1">Bima Azmi Khoerullah - NIM: 3224017</p>
-            <p class="small text-muted">Dibuat untuk tugas kuliah</p>
-            <p class="small text-muted mt-2"><i class="fas fa-info-circle me-1"></i>Tugas ini dibantu oleh AI Replit dan codingan sendiri</p>
         </div>
-    </footer>
 
-    <!-- Bootstrap JS -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" >
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: #007af3; color: rgb(0, 0, 0);">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Contoh Modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" >
+                        <b>
+                        Ini adalah contoh modal Bootstrap.
+                    </b>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-light">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Offcanvas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>Ini adalah contoh offcanvas sidebar.</p>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="modalCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Button trigger modal --&gt;
+&lt;button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"&gt;
+    Buka Modal
+&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class="modal fade" id="exampleModal" tabindex="-1"&gt;
+    &lt;div class="modal-dialog"&gt;
+        &lt;div class="modal-content" style="background-color: #007af3; color: rgb(0, 0, 0);"&gt;
+            &lt;div class="modal-header"&gt;
+                &lt;h5 class="modal-title"&gt;Contoh Modal&lt;/h5&gt;
+                &lt;button type="button" class="btn-close" data-bs-dismiss="modal"&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-body"&gt;
+                &lt;b&gt;Ini adalah contoh modal Bootstrap.&lt;/b&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-footer"&gt;
+                &lt;button type="button" class="btn btn-light" data-bs-dismiss="modal"&gt;Tutup&lt;/button&gt;
+                &lt;button type="button" class="btn btn-light"&gt;Simpan&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="progressCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Progress Bar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Progress Bars --&gt;
+&lt;div class="progress mb-3"&gt;
+    &lt;div class="progress-bar" role="progressbar" style="width: 25%"&gt;25%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress mb-3"&gt;
+    &lt;div class="progress-bar bg-success" role="progressbar" style="width: 50%"&gt;50%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress"&gt;
+    &lt;div class="progress-bar bg-danger" role="progressbar" style="width: 75%"&gt;75%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="listGroupCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode List Group</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;div class="list-group"&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action active"&gt;Item 1&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action"&gt;Item 2&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action"&gt;Item 3&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="toastCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Toast</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Toast Container --&gt;
+&lt;div class="toast-container position-fixed bottom-0 end-0 p-3"&gt;
+    &lt;div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+        &lt;div class="toast-header"&gt;
+            &lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+            &lt;small&gt;Baru saja&lt;/small&gt;
+            &lt;button type="button" class="btn-close" data-bs-dismiss="toast"&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="toast-body"&gt;
+            Ini adalah contoh toast message.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Button to trigger toast --&gt;
+&lt;button class="btn btn-primary" onclick="showToast()"&gt;Tampilkan Toast&lt;/button&gt;
+
+&lt;!-- JavaScript to show toast --&gt;
+&lt;script&gt;
+function showToast() {
+    const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+    toast.show();
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="offcanvasCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Offcanvas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Button trigger offcanvas --&gt;
+&lt;button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"&gt;
+    Buka Offcanvas
+&lt;/button&gt;
+
+&lt;!-- Offcanvas Sidebar --&gt;
+&lt;div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"&gt;
+    &lt;div class="offcanvas-header"&gt;
+        &lt;h5 class="offcanvas-title"&gt;Offcanvas&lt;/h5&gt;
+        &lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="offcanvas-body"&gt;
+        &lt;p&gt;Ini adalah contoh offcanvas sidebar.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="tabsCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Tabs</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Nav tabs --&gt;
+&lt;ul class="nav nav-tabs mb-3" id="myTab" role="tablist"&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+        &lt;button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"&gt;Tab 1&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+        &lt;button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"&gt;Tab 2&lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Tab content --&gt;
+&lt;div class="tab-content" id="myTabContent"&gt;
+    &lt;div class="tab-pane fade show active" id="home" role="tabpanel"&gt;Konten Tab 1&lt;/div&gt;
+    &lt;div class="tab-pane fade" id="profile" role="tabpanel"&gt;Konten Tab 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="spinnerCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Spinner</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Spinners --&gt;
+&lt;div class="spinner-border text-primary me-3" role="status"&gt;&lt;/div&gt;
+&lt;div class="spinner-border text-success me-3" role="status"&gt;&lt;/div&gt;
+&lt;div class="spinner-border text-danger" role="status"&gt;&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="alertCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Alert</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Alerts --&gt;
+&lt;div class="alert alert-success" role="alert"&gt;
+    &lt;h4 class="alert-heading"&gt;Well done!&lt;/h4&gt;
+    &lt;p&gt;This is a success alert with heading.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-danger" role="alert"&gt;
+    This is a danger alert.
+&lt;/div&gt;
+
+&lt;div class="alert alert-warning" role="alert"&gt;
+    This is a warning alert.
+&lt;/div&gt;
+
+&lt;div class="alert alert-info" role="alert"&gt;
+    This is an info alert.
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade code-modal" id="carouselCodeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kode Carousel</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>&lt;!-- Carousel --&gt;
+&lt;div id="carouselExample" class="carousel slide"&gt;
+    &lt;div class="carousel-inner"&gt;
+        &lt;div class="carousel-item active"&gt;
+            &lt;div class="bg-primary text-white text-center p-5"&gt;
+                &lt;h3&gt;Slide 1&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="carousel-item"&gt;
+            &lt;div class="bg-success text-white text-center p-5"&gt;
+                &lt;h3&gt;Slide 2&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="carousel-item"&gt;
+            &lt;div class="bg-danger text-white text-center p-5"&gt;
+                &lt;h3&gt;Slide 3&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"&gt;
+        &lt;span class="carousel-control-prev-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"&gt;
+        &lt;span class="carousel-control-next-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- AOS JS Library -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
-    <!-- Initialize AOS -->
     <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            once: false,
-        });
-        
-        // Create a galaxy pixel effect for background stars
-        document.addEventListener('DOMContentLoaded', function() {
-            const stars = document.createElement('div');
-            stars.classList.add('stars');
-            document.body.appendChild(stars);
-            
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                star.style.top = `${Math.random() * 100}%`;
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.animationDelay = `${Math.random() * 5}s`;
-                star.style.animationDuration = `${1 + Math.random() * 5}s`;
-                stars.appendChild(star);
+        window.addEventListener('load', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true
+                });
             }
+
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl);
+            });
+
+            var tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');
+            tabEls.forEach(function(tabEl) {
+                new bootstrap.Tab(tabEl);
+            });
+
+            var carousel = new bootstrap.Carousel(document.getElementById('carouselExample'));
+
+            var modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
+            modalTriggerList.forEach(function (modalTriggerEl) {
+                var target = modalTriggerEl.getAttribute('data-bs-target');
+                var modal = document.querySelector(target);
+                if (modal) {
+                    new bootstrap.Modal(modal);
+                }
+            });
+
+            var offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
+            offcanvasTriggerList.forEach(function (offcanvasTriggerEl) {
+                var target = offcanvasTriggerEl.getAttribute('data-bs-target');
+                var offcanvas = document.querySelector(target);
+                if (offcanvas) {
+                    new bootstrap.Offcanvas(offcanvas);
+                }
+            });
         });
+
+        function showToast() {
+            const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+            toast.show();
+        }
+
+        function copyCode(elementId) {
+            const codeElement = document.querySelector(`#${elementId} code`);
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            const toast = new bootstrap.Toast(document.getElementById('copyToast'));
+            toast.show();
+        }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.main-content').forEach(section => {
+                section.classList.remove('active-section');
+            });
+            
+            document.getElementById(sectionId).classList.add('active-section');
+            
+            document.querySelector('.landing-page').style.display = 'none';
+            
+            window.scrollTo(0, 0);
+        }
+
+        function returnToMainMenu() {
+            document.querySelector('.landing-page').style.display = 'flex';
+            document.querySelectorAll('.main-content').forEach(section => {
+                section.classList.remove('active-section');
+            });
+            window.scrollTo(0, 0);
+            return false;
+        }
     </script>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="copyToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Code copied to clipboard!
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+</html> 
